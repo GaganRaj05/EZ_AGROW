@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/login.css')}}">
+    <title>Login</title>
+</head>
+
+<body>
+    {%with messages = get_flashed_messages(with_categories = true)%}
+        {% if messages %}    
+            {%for category, message in messages%}
+                <div class = "alert alert-{{category}}" id="error-message">
+                    {{message}}
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST" action="{{url_for('login', form_type="labour")}}">
+                <h1>Login</h1>
+                
+                {{formL.hidden_tag()}}
+                {{formL.csrf_token}}
+                {{formL.username(placeholder="Email")}}
+                {{formL.password(placeholder="Enter your Password")}}
+                <a href="#">Forget Your Password?</a>
+                {{formL.submit}}
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form method="POST" action="{{url_for('login', form_type="farmer")}}">
+                <h1>Login</h1>
+                {{formF.hidden_tag()}}
+                {{formF.csrf_token}}
+                {{formF.username(placeholder="Email")}}
+                {{formF.password(placeholder="Enter your Password")}}
+                <a href="#">Forget Your Password?</a>
+                {{formF.submit}}
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Labour</h1>
+                    <p>Enter your details to use all of site features</p>
+                    <button class="hidden" id="login">Farmer Login</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello,Farmer</h1>
+                    <p>Enter your details to use all of site features</p>
+                    <button class="hidden" id="register">Labour Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='javascript/login.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/registration.css')}}">
+    <title>Sign-Up</title>
+</head>
+
+<body>
+    {%with messages = get_flashed_messages(with_categories = true)%}
+        {% if messages %}    
+            {%for category, message in messages%}
+                <div class = "alert alert-{{category}}" id="error-message">
+                    {{message}}
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST" action="{{url_for('register', form_type="farmer")}}">
+                {{formF.hidden_tag()}}
+                {{formF.csrf_token}}
+                <h1>Sign Up</h1>
+                {{ formF.farmer_name(placeholder="Enter your name") }}
+                {{ formF.farmer_email(placeholder="Enter your email") }}
+                {{formF.farmer_username(placeholder="Enter your username")}}
+                {{ formF.farmer_new_password(placeholder="New-Password") }}
+
+                {{ formF.farmer_confirm_password(placeholder="Confirm-Password") }}
+                {{formF.farmer_date_of_birth(placeholder="Date-Of-Birth")}}
+                <div class="form-group">
+                    <label for="{{ formF.farmer_gender.id }}" class="form-label">Enter your Gender</label>
+                    {{ formF.farmer_gender() }}
+                </div>
+                {{ formF.farmer_phone_no(placeholder="Phone-no") }}
+                {{ formF.farmer_farm_type(placeholder="Farm-type") }}
+                {{formF.farmer_sign_up(class="color_required")}}
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form method="POST" action="{{url_for('register', form_type="labour")}}">
+                <h1>Sign Up</h1>
+                {{formL.hidden_tag()}}
+                {{formL.csrf_token}}
+
+                {{ formL.labour_name(placeholder="Enter your name") }}
+                {{formL.labour_username(placeholder="Enter your username")}}
+                <div class="form-group">
+                    <label for="{{ formL.labour_gender.id }}" class="form-label">Enter your Gender</label>
+                    {{ formL.labour_gender() }}
+                </div>
+                {{ formL.labour_email(placeholder="Enter your email") }}
+                {{ formL.labour_date_of_birth(placeholder="Date of Birth") }}
+                {{ formL.labour_new_password(placeholder="New-Password") }}
+                {{ formL.labour_confirm_password(placeholder="Confirm-Password") }}
+                {{ formL.labour_phone_no(placeholder="Phone-no") }}
+                {{formL.labour_sign_up(class="color_required")}}
+                
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Farmer</h1>
+                    <p>Enter your details to use all of site features</p>
+                    <button class="hidden" id="login">Labour Sign Up</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello,Labour</h1>
+                    <p>Enter your details to use all of site features</p>
+                    <button class="hidden" id="register">Farmer Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='javascript/registration.js')}}"></script>
+</body>
+
+</html>

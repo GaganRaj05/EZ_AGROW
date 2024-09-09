@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ-AGROw</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style1.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <center>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 70px;">
+                <div class="container-fluid">
+                    <img src="{{url_for('static', filename='images/EZ_AGROw-removebg-preview.png')}}" alt="Logo" style="height: 80px; border-radius: 50%;" id="logo-img">
+
+                  <a class="navbar-brand" href="#" style="margin-left: -600px;" id="logo-text">EZ AGROw</a>
+                  <center>
+                    <div style="margin-left: -100px;">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Schemes</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          More
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Hiring</a>
+                      </li>
+                    </ul>
+                </div>
+                </center>
+                <div>
+                <a id="loginButton" class="btn btn-outline-success"  href="{{url_for('login')}}" style="text-decoration: none;">Login</a>
+                <a id="loginButton" class="btn btn-outline-dark"  href="{{url_for('register')}}" style="text-decoration: none;">Register</a>
+
+                </div>
+            
+                  </div>
+                </div>
+              </nav>
+
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>EZ AGROw is a dedicated platform designed to support and empower farmers</h2>
+            <p>Get woodenly artisan chair now & get special offer</p>
+            
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <section class="grain-trading-section">
+      <div class="container">
+          <h2>Grain Trading <span class="highlight">Simplified.</span></h2>
+          <p>
+              Built to be the most reliable and trustworthy partner in the grain trade, we provide the most effective approaches to meet and exceed our customers' expectations.
+          </p>
+          <div class="services">
+              <div class="service-card">
+                  <img src="{{url_for('static', filename='images/crop-marketing-us.jpeg')}}" alt="Crop marketing">
+                  <h3>Crop marketing</h3>
+                  <p>
+                      Sell your bushels the way that suits your needs. We're here to help you get the best possible price and conditions.
+                  </p>
+              </div>
+              <div class="service-card">
+                  <img src="{{url_for('static', filename='images/logistics-us.jpeg')}}" alt="Logistics">
+                  <h3>Logistics</h3>
+                  <p>
+                      Together, we decide the best way to move your bushels. With your own trucks or handled by us.
+                  </p>
+              </div>
+              <div class="service-card">
+                  <img src="{{url_for('static', filename='images/market-insights-us.jpeg')}}" alt="Market insights">
+                  <h3>Market insights</h3>
+                  <p>
+                      Our team keeps a constant eye on the market while you are running your farm. Contact us now to receive regular bids for your location.
+                  </p>
+              </div>
+              <div class="service-card">
+                  <img src="{{url_for('static', filename='images/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg')}}" alt="Another Service">
+                  <h3>Another Service</h3>
+                  <p>
+                      Description for the fourth service.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </section>
+  <br>
+  <!-- <sales and marketing></sales> -->
+
+  <center><h2>Our Farming <span style="color: green;">Services</span></h2></center>
+  <br>
+  <center>
+  <div class="sales-marketing-section" style="display: flex; align-items: flex-start;">
+    <p id="optionsp" style="flex: 1; margin-right: 20px; margin-left: 20px;">
+        Our platform offers a comprehensive range of services to empower farmers, including product selling, product buying,
+        and access to loan schemes. Through the product selling service, farmers can list and sell their crops directly to 
+        buyers, ensuring they receive fair prices without relying on middlemen. The product buying service provides a convenient
+        marketplace for purchasing agricultural inputs like seeds, fertilizers, and equipment, with the ability to compare 
+        prices and choose from trusted suppliers. Additionally, our platform offers detailed information on various loan
+        schemes, guiding farmers through the process of securing affordable credit to enhance their farming operations.
+    </p>
+
+    <br>
+    <div class="service-container" style="flex: 2; display: flex; flex-wrap: wrap; gap: 10px;margin-top: 50px;">
+        <a href="../frontend/jobs.html" class="service-box" id="dailyMarket" style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/dailymarketprice.avif')}}" alt="Daily Market Prices">
+            <span>Daily Market Prices</span>
+        </a>
+        <a href="../frontend/productspurchase.html" class="service-box" id="pesticideDealers" style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/pest-control-logo-pesticide-logo-vector.jpg')}}" alt="Pesticide Dealers">
+            <span>Fertilizers</span>
+        </a>
+        <a href="../frontend/productspurchase.html" class="service-box" id="pesticideProducts" style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/pesprod.avif')}}" alt="Pesticide Products">
+            <span>Pesticide Products</span>
+        </a>
+        <a href="../frontend/jobs.html" class="service-box" id="pesticideInfo"style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/servicenursery.jpeg')}}" alt="Pesticide Info">
+            <span>Nursery</span>
+        </a>
+        <br>
+        <a href="../frontend/jobs.html" class="service-box" id="coldStorages" style="margin-left: 50px; text-decoration: none;" >
+            <img src="{{url_for('static', filename='images/tools3.png')}}" alt="Cold Storages">
+            <span>Tools</span>
+        </a>
+        <a href="../frontend/jobs.html" class="service-box" id="soilTesting" style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/machinary3.jpg')}}" alt="Soil Testing Laboratory">
+            <span>Machinary</span>
+        </a>
+        <a href="../frontend/jobs.html" class="service-box" id="fertilizerDealers"style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/serviceweather2.jpeg')}}" alt="Fertilizer Dealers">
+            <span>Weather info</span>
+        </a>
+        <a href="../frontend/jobs.html" class="service-box" id="seedDealers" style="text-decoration: none;">
+            <img src="{{url_for('static', filename='images/seeddealers.jpg')}}" alt="Seed Dealers">
+            <span>Seed Dealers</span>
+        </a>
+    </div>
+  </center>
+</div>
+
+
+<!-- main content variable 4 box for loans -->
+<!-- main content variable 4 box for loans -->
+<div style="background-color:rgba(211, 211, 211, 0.318);">
+  <h3 style="text-align: center; padding-top: 20px;">
+    Government Schemes <span style="color: green;"> and Other Services </span>
+  </h3>
+  
+  <!-- Small description -->
+  <p style="text-align: center; margin-top: 10px; font-size: 1.1em; color: #555;">
+    Click on the images below to avail the services offered by the government.
+  </p>
+  
+  <div class="no1">
+    <div class="no2" onclick="window.location.href='loans.html'">
+        <img src="{{url_for('static', filename='images/LOAN.png')}}" id="noimage" alt="Veggies Icon">
+        <h2>Farming Loans</h2>
+        <p>Tap on the above image to know more about loans and application procedure.</p>
+    </div>
+  
+    <div class="no2" onclick="window.location.href='#'">
+        <img src="{{url_for('static', filename='images/schemesimg.png')}}" id="noimage" alt="Salad Bowl">
+        <h2>Government Schemes</h2>
+        <p>Tap on the banner to know more about the schemes provided by the government.</p>
+    </div>
+  
+    <div class="no2" onclick="window.location.href='page3.html'">
+        <img src="{{url_for('static', filename='images/subsidy.png')}}" id="noimage" alt="Eco Friendly">
+        <h2>Subsidy</h2>
+        <p>Click on above banner to know more about subsidy provided to the farmers.</p>
+    </div>
+  </div>
+  
+  <div class="no1">
+    <div class="no2" onclick="window.location.href='./jobs.html'">
+        <img src="{{url_for('static', filename='images/jobsbannerindex.png')}}" id="noimage" alt="Veggies Icon">
+        <h2>Hire Farmers</h2>
+        <p>Tap on the above image to know more about hiring farmers.</p>
+    </div>
+  
+    <div class="no2" onclick="window.location.href='page2.html'">
+        <img src="{{url_for('static', filename='images/LOAN.png')}}" id="noimage" alt="Salad Bowl">
+        <h2>Bank and Society</h2>
+        <p>Click on image and navigate to the site to know more about services provided by bank and society.</p>
+    </div>
+  
+    <div class="no2" onclick="window.location.href='page3.html'">
+        <img src="{{url_for('static', filename='images/applicationservicesbanner.png')}}" id="noimage" alt="Eco Friendly">
+        <h2>Softwares for Farmers</h2>
+        <p>To kniw more about applications provided to farmers tap on the above image to navigate.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- end of 4 boxes -->
+
+  
+
+
+<br>
+  <section class="hero2">
+    <div class="hero-content2">
+        <h6 style="padding: 100px;">At EZ AGROw, we aim to revolutionize agriculture by creating a one-stop platform for farmers 
+          to sell their crops, purchase essential goods, and access critical information. Our user-friendly interface
+          allows farmers to list their produce directly for buyers, ensuring fair prices without middlemen.</h6>
+        <p></p>
+        
+    </div>
+    <div class="hero-overlay2"></div>
+</section>
+  <!-- <video> -->
+
+
+<h3 style="text-align: center; margin-top: 30px;" >Learn Best Farming <span style="color: green;"> Practices </span>  </h3>
+
+    <section class="video-section">
+      <div class="video-container">
+          <h2>Sell Crops without Mediators</h2>
+          <video src="../images/video1.mp4" autoplay muted loop></video>
+          <p>This is a short description of video 1.</p>
+      </div>
+      <div class="video-container">
+          <h2>Best Farming Practices</h2>
+          <video src="../images/video2.mp4" autoplay muted loop></video>
+          <p>This is a short description of video 2.</p>
+      </div>
+      <div class="video-container">
+          <h2>Top 10 Government Loans</h2>
+          <video src="../images/video1.mp4" autoplay muted loop></video>
+          <p>This is a short description of video 3.</p>
+      </div>
+  </section>
+
+    <!-- videoend -->
+  <br>
+<div style="margin: 0px 10px 0px 10px;">
+  <div class="team-section" style="background-color: rgba(187, 224, 236, 0.318);">
+    <h2 class="section-title">Government schemes<span class="highlight"> for farmers success stories</span></h2>
+    <p class="section-description">Explore a wide range of government schemes designed to support and uplift farmers. From financial aid and subsidies to crop insurance and loan waivers, this section provides detailed insights into the latest initiatives aimed at improving agricultural practices and securing farmers' livelihoods. Stay informed about how these schemes can benefit you and take the first step towards maximizing your agricultural potential.</p>
+    
+    <div class="team-members">
+        <div class="team-member">
+            <img src="{{url_for('static', filename='images/kisan1.jpg')}}" alt="John Borchers" class="team-photo">
+            <h3 class="team-name">Sananna from Karnataka:</h3>
+            <p class="team-role">Raju, a small-scale farmer from Karnataka, benefited from the PM-Kisan scheme, which provides direct income support to farmers. With the financial aid, Raju was able to purchase quality seeds and fertilizers, leading to a significant increase in his crop yield.</p>
+        </div>
+        <div class="team-member">
+            <img src="{{url_for('static', filename='images/kisan2')}}.jpg" alt="Jason Dippel" class="team-photo">
+            <h3 class="team-name">Raju from Maharastra </h3>
+            <p class="team-role">VP Finance & Operations</p>
+            <p class="team-description">Discover various government schemes crafted to empower farmers across the country. These initiatives include financial subsidies, crop insurance, loan waivers, and more, all aimed at enhancing agricultural productivity and supporting farmers' well-being. Learn how these programs can provide the resources you need to thrive in your farming endeavors.</p>
+        </div>
+        <div class="team-member">
+            <img src="{{url_for('static', filename='images/kisan1.jpg')}}" alt="Kevin Picknick" class="team-photo">
+            <h3 class="team-name">Sampath from Delhi:</h3>
+            <p class="team-role">Trader</p>
+            <p class="team-description">Suresh benefited from the Rashtriya Krishi Vikas Yojana (RKVY), which provides financial support for agricultural development projects. The grant allowed Suresh to adopt modern farming techniques and purchase high-quality seeds, leading to improved productivity and higher market prices for his vegetables.</p>
+            <p class="team-contact">816-844-6900</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-wrapper">
+  <div class="container">
+      <p class="hover-paragraph">Please provide a comprehensive set of frequently asked questions (FAQ) that align with the content of our website. These FAQs will serve as a valuable resource, helping users quickly find answers to their common inquiries, thereby enhancing their overall experience and ensuring they can navigate the platform with ease.</p>
+      <a href="../frontend/faq.html" class="container-btn" style="text-decoration: none;">FAQ</a>
+  </div>
+  <div class="container">
+      <p class="hover-paragraph">Please provide detailed feedback questions or prompts tailored to our website. This will enable us to collect in-depth insights from users, allowing us to refine and enhance their overall experience on our platform.</p>
+      <a href="./feedback.html" class="container-btn" style="text-decoration: none;">Feedback</a>
+  </div>
+  <div class="container">
+      <p class="hover-paragraph">Please provide a comprehensive set of suggestions that align with the content and goals of our website. These suggestions will serve as a valuable resource, helping us refine our offerings, improve user experience, and ensure the platform meets the needs of our audience effectively.</p>
+      <a href="../frontend/suggesition.html" class="container-btn" style="text-decoration: none;">Suggestions</a>
+      </div>
+</div>
+
+</div>
+
+
+<!-- footer -->
+
+<footer class="footer">
+
+  <div class="footer-container">
+      <div class="footer-about">
+          <h4>About Ez Agrow</h4>
+          <p>Ez Agrow is dedicated to empowering farmers with the tools and resources they need to succeed. From selling crops to accessing real-time market insights, we are your trusted partner in agriculture.</p>
+      </div>
+      
+      <div class="footer-links" style="margin-left: 30px;">
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="./sellcrops.html">Sell Crops</a></li>
+              <li><a href="#buy-goods">Buy Goods</a></li>
+              <li><a href="#market-analysis">Market Analysis</a></li>
+              <li><a href="./loans.html">Loans & Subsidies</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+          </ul>
+
+    </div>
+      <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: support@ezagrow.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: 123 Agricultural Lane, Hassan, Karnataka</p>
+      </div>
+      
+      <div class="footer-social">
+          <h4>Follow Us</h4>
+          <a class="no-default-color" href="#"><img src="{{url_for('static', filename='images/twitter2.png')}}" alt="Twitter"></a>
+          <a class="no-default-color" href="#"><img src="{{url_for('static', filename='images/fb.jpeg')}}" alt="Facebook"></a>
+          <a class="no-default-color" href="#"><img src="{{url_for('static', filename='images/insta.jpeg')}}" alt="Instagram"></a>
+          <a class="no-default-color" href="#"><img src="{{url_for('static', filename='images/linkedin.png')}}" alt="LinkedIn"></a>
+      </div>
+  </div>
+    <a class="nav-link active" aria-current="page" href="../frontend/jobs.html">Jobs</a>
+  <div class="footer-bottom">
+      <p>&copy; 2024 Ez Agrow. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename='javascript/index.js')}}"></script>
+</body>
+</html>

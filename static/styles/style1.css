@@ -1,0 +1,569 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../images/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg') center center/cover no-repeat;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: backgroundSlide 10s infinite linear;
+}
+
+.hero-content {
+    z-index: 2;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+@keyframes backgroundSlide {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* market analytics four flex  */
+
+.grain-trading-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.grain-trading-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grain-trading-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.grain-trading-section .highlight {
+    color: #31bb3c;
+}
+
+.grain-trading-section p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.grain-trading-section .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 22%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin: 20px 0 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+    padding: 0 20px 20px;
+    color: #777;
+}
+
+@media (max-width: 1200px) {
+    .service-card {
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        max-width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card {
+        max-width: 100%;
+    }
+
+    .grain-trading-section h2 {
+        font-size: 28px;
+    }
+
+    .grain-trading-section p {
+        font-size: 16px;
+    }
+}
+ /* sales and marketing */
+ .sales-marketing-section {
+    margin-left: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.service-box {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.service-box img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    background-color: #ffffff;
+}
+
+.service-box span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+#optionsp{
+    border: 2px solid green;
+    border-radius: 10px;
+    margin: 5px 0px 50px 0px;
+    padding: 10px;
+}
+
+    /* 4 grid grey color */
+    
+    .no1 {
+        margin: 0 auto;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      
+      .no2 {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 20px;
+        width: 300px;
+        margin: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      #noimage{
+        height: 270px;
+        width: 250px;
+        border: 2ox solid black;
+        border-radius: 5px;
+      }
+
+      .no2 img {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .no2 h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-top: 10px;
+      }
+      
+      .no2 p {
+        color: #777;
+        margin-top: 10px;
+      }
+      
+      .no2:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+      
+      .no1 h3 {
+        font-size: 1.8em;
+        color: #333;
+      }
+      
+
+/* 4 box end */
+
+/* Image 2 */
+
+.hero2 {
+    position: relative;
+    height: 100vh;
+    background: url('../images/photo-1483871788521-4f224a86e166.avif') center center/cover no-repeat;
+    margin: 10px;
+    border-radius: 5%;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: backgroundSlide 10s infinite linear;
+}
+
+.hero-content2 {
+    z-index: 2;
+    border-radius: 5%;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.hero-overlay2 {
+    border-radius: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* video */
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.video-container {
+    margin: 15px;
+    text-align: center;
+    max-width: 300px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.video-container p {
+    color: #555;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 90%;
+    }
+}
+
+/* video end */
+
+/* farmers photo and success stories */
+
+.team-section {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section-title {
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #007bff;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    animation: slideUp 1s ease-in-out;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-photo {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.team-description,
+.team-contact {
+    font-size: 14px;
+    color: #555;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* faq */
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+    background-color: #eaf4ff;
+}
+
+.hover-paragraph {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 20px;
+    transition: color 0.4s ease;
+}
+
+.container:hover .hover-paragraph {
+    color: #0056b3;
+}
+
+.container-btn {
+    background-color: #64a108;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+}
+
+.container-btn:hover {
+    background-color: #003d7a;
+    transform: scale(1.05);
+}
+
+/* corousel images */
+
+
+
+/* Footer */
+
+.footer {
+    background-color: #333;
+    color: #f5f5f5;
+    padding: 40px 0;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-about p,
+.footer-contact p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #4CAF50;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-social a img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-social a:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    background-color: #222;
+    color: #ccc;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+.no-default-color {
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
