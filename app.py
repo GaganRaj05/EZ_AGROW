@@ -22,13 +22,14 @@ def login():
     formL = Labour_login()
     form_type = request.args.get("form_type")
     if form_type == "farmer" and formF.validate_on_submit():
-        print("its coming here")
         cursor = mysql.connection.cursor()
         username = formF.username.data
         passwd = formF.password.data
         cursor.execute("select username, password from FARMER where username=%s and password=%s", (username, passwd))
         valid = cursor.fetchone()
         if valid:
+            session['user_name'] = username
+            session['password'] = passwd
             flash(f"Successfully Logged-In", "success")
             return redirect(url_for('home'))
         else:
@@ -42,6 +43,8 @@ def login():
         cursor.execute("select username, password from LABOUR where username=%s and password=%s", (username, passwd))
         valid = cursor.fetchone()
         if valid:
+            session['user_name'] = username
+            session['password'] = passwd
             flash(f"Successfully Logged-In", "success")
             return redirect(url_for('home'))
         else:
