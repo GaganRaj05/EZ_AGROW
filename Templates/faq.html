@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZ-AGROw</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .intro-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .intro-text {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .emoji {
+            font-size: 20px;
+        }
+        /* #chat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        } */
+        #messages {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .user-message {
+            color: blue;
+        }
+        .bot-message {
+            color: green;
+        }
+        #user-input {
+          
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-left: 150px;
+        }
+        #send-btn {
+         
+            background-color: rgb(114, 255, 38);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5%;
+            cursor: pointer;
+            margin-right: 4px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(114, 255, 38);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>EZ-Chat</h1>
+        </header>
+        <main>
+            <div class="intro-box">
+                <div class="intro-text">
+                    <span class="emoji">👋</span> Hello,<br>
+                    I am your AI assistant. Enter a prompt or choose a suggestion to start a conversation. I'll respond using data from within your organization.
+                </div>
+                <div id="chat-box">
+                    <div id="messages"></div>
+                    
+                        <input type="text" id="user-input" placeholder="Enter your message...">
+                        <button id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#send-btn').click(function() {
+                var userMessage = $('#user-input').val();
+                if (userMessage.trim() === "") return;
+
+                $('#messages').append('<div class="message user-message">User: ' + userMessage + '</div>');
+                $('#user-input').val('');
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/get',
+                    data: { msg: userMessage },
+                    success: function(response) {
+                        $('#messages').append('<div class="message bot-message">EZ-Bot:  ' + response.response + '</div>');
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    },
+                    error: function() {
+                        $('#messages').append('<div class="message bot-message">EZ-Bot: An error occurred.</div>');
+                        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+                    }
+                });
+            });
+
+            $('#user-input').keypress(function(e) {
+                if (e.which == 13) {
+                    $('#send-btn').click();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

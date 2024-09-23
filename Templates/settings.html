@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Info</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/settings.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Your personal profile info</h2>
+        <form  method="POST" enctype="multipart/form-data">
+            {{formF.csrf_token}}
+            {{formF.hidden_tag()}}
+            <div class="form-section">
+                <h3>Update Profile</h3>
+                <div class="input-group">
+                    {{formF.name(placeholder="Full Name")}}
+                    
+
+                </div>
+                <div class="input-group">
+                    {{formF.phone_no(placeholder="Phone number")}}
+                </div>
+                <div class="input-group">
+                    {{formF.username(placeholder="Username")}}
+
+                </div>
+            </div>
+            {{formF.submit(class="btn")}}
+            <br><br>
+            
+        </form>
+        <form method ="POST" action="">
+            {{formG.csrf_token}}
+            {{formG.hidden_tag()}}
+            <div class="form-section">
+                <h3>Change Password</h3>
+                <div class="input-group">
+                    {{formG.old_password(placeholder="Old password")}}
+                </div>
+                <div class="input-group">
+                    {{formG.new_password(placeholder="New password")}}
+                    {{formG.confirm_password(placeholder="Confirm new password")}}
+                </div>
+            </div>
+            {{formG.submit(class="btn")}}
+        </form>
+    </div>
+
+</body>
+</html>

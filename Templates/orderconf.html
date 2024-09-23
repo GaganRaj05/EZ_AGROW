@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/orderconf.css')}}">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <div class="icon">
+                <img src="{{url_for('static', filename='images/confirm.png')}}" alt="Success Icon">
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p>Your Total is: {{total}}</p>
+            <p>Your order has been placed successfully. <a href="#">Order History</a></p>
+            <p>The seller will contact you soon</p>
+            <button class="continue-shopping" onclick ="window.location.href='{{url_for('marketplace')}}'">Continue Shopping</button>
+            <p class="support">Have any questions? Reach directly to our <a href="#">Customer Support</a></p>
+        </div>
+    </div>
+</body>
+</html>

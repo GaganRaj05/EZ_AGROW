@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Developer Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/aboutus.css')}}" />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Hi, Welcome to our profile</h1>
+        <p class="hero-subtitle">We are Students learning Computer Science Engineering in SDM Polytechnic</p>
+        <a href="#contact" class="cta-button">Hire us</a>
+      </div>
+    </section>
+    <section id="about" class="about"></section>
+      <div class="container">
+        <h2>About Our Group</h2>
+        <div class="about-cards">
+          <div class="about-card">
+            <img
+              src="{{url_for('static', filename='/images/sheetty.jpg')}}"
+              alt="Member 1"
+              class="about-image"
+            />
+            <h3>Akash Shetty</h3>
+            <p>Student At SDMP</p>
+            <p>I am a passionate Computer Science student with a keen interest in technology, problem-solving, and innovative projects. I enjoy working on web development and exploring new technologies, always looking for opportunities to grow and contribute. </p>
+          </div>
+          <div class="about-card">
+            <img
+              src="{{url_for('static', filename='/images/gagan.jpg')}}"
+              alt="Member 2"
+              class="about-image"
+            />
+            <h3>Gagan Raj</h3>
+            <p>Student At SDMP</p>
+            <p>A versatile developer skilled in Node.js, Flask, Java, and more, crafting powerful applications with expertise in backend, frontend, and databases.</p>
+          </div>
+          <div class="about-card">
+            <img
+              src="{{url_for('static', filename='/images/pramukh.jpg')}}"
+              alt="Member 3"
+              class="about-image"
+            />
+            <h3>Pramukh S.M</h3>
+            <p>Student At SDMP</p>
+            <p>A skilled developer in frontend and UI/UX design, bringing user-friendly interfaces to life with strong database management skills.</p>
+          </div>
+          <div class="about-card">
+            <img
+            
+              src="{{url_for('static', filename='/images/hanish.jpg')}}"
+              alt="Member 4"
+              class="about-image"
+            />
+            <h3>Hanish S.S</h3>
+            <p>Student At SDMP</p>
+            <p>As the front-end developer for the EZ AGROw platform, I focus on creating a seamless user interface. My role involves designing and implementing features that enhance the customer experience. From product browsing to order placement, I ensure the site is visually appealing and user-friendly`</p>
+          </div>
+          <div class="about-card">
+            <img
+              src="{{url_for('static', filename='/images/alwin.png')}}"
+              alt="Member 5"
+              class="about-image"
+            />
+            <h3>Alwin P Abraham</h3>
+            <p>Student At SDMP</p>
+            <p>I am a Computer Science student who loves technology and working on web development projects. I enjoy learning new things and solving problems through coding</p>
+          </div>
+          <div class="about-card">
+            <img
+              src="{{url_for('static', filename='/images/sumanth.png')}}"
+              alt="Member 6"
+              class="about-image"
+            />
+            <h3>Sumanth N</h3>
+            <p>Student At SDMP</p>
+            <p>Versatile developer with expertise in both frontend and backend technologies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2>Skills of our Team </h2>
+        <ul class="skills-list">
+          <li>
+            <img src="{{url_for('static', filename='/images/html.png')}}" alt="HTML" class="skill-icon" /><span
+              >HTML</span
+            >
+          </li>
+          <li>
+            <img src="{{url_for('static', filename='/images/css.png')}}" alt="CSS" class="skill-icon" /><span
+              >CSS</span
+            >
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/js.jpg')}}"
+              alt="JavaScript"
+              class="skill-icon"
+            /><span>JavaScript</span>
+          </li>
+          <li>
+            <img src="{{url_for('static', filename='/images/react.png')}}" alt="React" class="skill-icon" /><span
+              >React</span
+            >
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/nodejs.png')}}"
+              alt="Node.js"
+              class="skill-icon"
+            /><span>Node.js</span>
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/python.png')}}"
+              alt="Python"
+              class="skill-icon"
+            /><span>Python</span>
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/java.png')}}"
+              alt="Java"
+              class="skill-icon"
+            /><span>Java</span>
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/flask.png')}}"
+              alt="Flask"
+              class="skill-icon"
+            /><span>Flask</span>
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/mysql.webp')}}"
+              alt="MySql"
+              class="skill-icon"
+            /><span>MySql</span>
+          </li>
+          <li>
+            <img
+              src="{{url_for('static', filename='/images/postgresql.webp')}}"
+              alt="Postgre Sql"
+              class="skill-icon"
+            /><span>Postgre Sql</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <section id="social-media" class="social-media">
+      <div class="container">
+        <h2>Follow Us</h2>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/ez-agro-w-428565328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
+            ><img src="{{url_for('static', filename='/images/linkedin2.png')}}" alt="LinkedIn"
+          /></a>
+          <a href="https://github.com/EZ-AGROw/EZ-AGROw" target="_blank"
+            ><img src="{{url_for('static', filename='/images/github.png')}}" alt="GitHub"
+          /></a>
+          <a href="https://x.com/EZ_AGROw?t=iM3lOc29MOp-43OibjEVrw&s=08" target="_blank"
+            ><img src="{{url_for('static', filename='/images/xcorp.png')}}" alt="Xcorp"
+          /></a>
+          <a href="https://www.instagram.com/ezagrow?igsh=MWp1cnlpOWY2bHd6aQ==" target="_blank"
+            ><img src="{{url_for('static', filename='/images/insta.jpeg')}}" alt="Instgram"
+          /></a>
+          <a href="https://www.facebook.com/profile.php?id=61566015531106&mibextid=ZbWKwL" target="_blank"
+            ><img src="{{url_for('static', filename='/images/facebook.png')}}" alt="Facebook"
+          /></a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

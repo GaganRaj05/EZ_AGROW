@@ -6,7 +6,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('../images/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg') center center/cover no-repeat;
+    background: url('../images/jjk.jpg') center center/cover no-repeat;
     color: white;
     text-align: center;
     display: flex;
@@ -440,11 +440,7 @@ body {
     transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
 }
 
-.container:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    background-color: #eaf4ff;
-}
+
 
 .hover-paragraph {
     font-size: 16px;
@@ -565,5 +561,8 @@ body {
 .no-default-color {
     color:white;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+a {
     text-decoration: none;
 }

@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.main-heading {
+    font-size: 32px;
+    background: linear-gradient(to right, #00b36e, #00ff5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.job-listings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1500px;
+}
+
+.job-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+    height: 500px; 
+    box-sizing: border-box; 
+    text-align: center;
+}
+
+.job-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.job-info h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.job-info p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.tags span {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #555;
+}
+
+.apply-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.salary {
+    font-size: 16px;
+    color: #00ff5e;
+}
+
+.apply-button {
+    padding: 10px 20px;
+    background-color: #05ec93;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.apply-button:hover {
+    background-color: #00b36e;
+}
+
+img {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}

@@ -208,3 +208,6 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+.color-required {
+    background-color: #4cb959;
+}

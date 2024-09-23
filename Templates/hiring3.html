@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Work Submission Form</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/hiring3.css')}}">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar with farmer image -->
+        <aside class="sidebar">
+            <img src="{{url_for('static', filename='images/farmer2.avif')}}" alt="Farmer" class="sidebar-image"> 
+        </aside>
+        
+        <!-- Main form content -->
+        <main class="main-content">
+            <form id="farm-work-form" method='POST'>
+                <h1>Submit Your Farm Work</h1>
+                {{form.hidden_tag()}}
+                {{form.csrf_token}}
+                <!-- Work Type Selection -->
+                <label for="work-type">Type of Work <span class="required">*</span></label>
+                {{form.work_type(id="work-type", placeholder="Select work type")}}
+               
+
+                <!-- Description of Work -->
+                <label for="work-description">Work Description <span class="required">*</span></label>
+                {{form.work_description(id="work-description", placeholder="Describe the work to be done")}}
+
+                <!-- Equipment Required -->
+                <label for="equipment">Equipment Required</label>
+                {{form.equipments(id="equipment", placeholder="List any equipment needed (e.g., tractors, sprayers)")}}
+
+                <!-- Number of Workers Needed -->
+                <label for="num-workers">Number of Workers Needed <span class="required">*</span></label>
+                {{form.no_of_workers(id="num-workers",placeholder="Enter number of workers", min=1 )}}
+                <!-- Date Picker for Work Start -->
+                <label for="start-date">Preferred Start Date</label>
+                {{form.start_date(id="start-date")}}
+                <!-- Submit Button -->
+                 {{form.submit(class="color-required")}}
+            </form>
+        </main>
+    </div>
+
+    <script src="mainservice.js"></script>
+</body>
+</html>

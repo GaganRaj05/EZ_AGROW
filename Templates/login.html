@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="{{url_for('static', filename='styles/login.css')}}">
+    
     <title>Login</title>
+
 </head>
 
 <body>
@@ -26,10 +28,9 @@
                 
                 {{formL.hidden_tag()}}
                 {{formL.csrf_token}}
-                {{formL.username(placeholder="Email")}}
+                {{formL.username(placeholder="Username")}}
                 {{formL.password(placeholder="Enter your Password")}}
-                <a href="#">Forget Your Password?</a>
-                {{formL.submit}}
+                {{formL.submit(class="color-required")}}
             </form>
         </div>
         <div class="form-container sign-in">
@@ -37,10 +38,9 @@
                 <h1>Login</h1>
                 {{formF.hidden_tag()}}
                 {{formF.csrf_token}}
-                {{formF.username(placeholder="Email")}}
+                {{formF.username(placeholder="Username")}}
                 {{formF.password(placeholder="Enter your Password")}}
-                <a href="#">Forget Your Password?</a>
-                {{formF.submit}}
+                {{formF.submit(class="color-required")}}
             </form>
         </div>
         <div class="toggle-container">
@@ -58,7 +58,6 @@
             </div>
         </div>
     </div>
-
     <script src="{{url_for('static', filename='javascript/login.js')}}"></script>
 </body>
 

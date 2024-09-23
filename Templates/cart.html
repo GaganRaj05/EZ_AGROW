@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/cart.css')}}">
+</head>
+<body>
+    {%with messages = get_flashed_messages(with_categories = true)%}
+    {% if messages %}    
+        {%for category, message in messages%}
+            <div class = "alert alert-{{category}}" id="error-message">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+    {% if product_name %}
+    <h1>Shopping Cart</h1>
+    <div class="cart-container">
+        {% for product, price,id, img in zip(product_name, product_price, product_id, image) %}
+            <div class="cart-item">
+                <img src="{{ url_for('static', filename='images/' + img) }}" class="item-image">
+                <div class="item-details">
+                    <h3>{{ product }}</h3>
+                    
+                    <p class="price">₹{{ price }}.00</p>
+                    
+                    <button class="delete" onclick="window.location.href='{{ url_for('delete', product_id=id)}}'" >Delete</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No items added to the cart</p>
+{% endif %}
+
+    <div class="cart-summary">
+        <h2>Subtotal: <span class="subtotal-amount">{{total}}</span></h2>
+        <div class="cart-actions">
+            <button onclick="window.location.href='{{url_for('order')}}'" class="checkout">Proceed to Checkout</button>
+        </div>
+    </div>
+
+
+    <script src="{{url_for('static', filename='javascript/cart.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Job Listings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/jobs.css') }}">
+</head>
+<body>
+    <h1 class="main-heading">Farmer Job Listings</h1>
+    <div class="job-listings">
+        {% if message %}
+            <div>{{ message }}</div>
+        {% else %}
+            {% for type, work_des, id in zip(work_type, work_description, work_id) %}
+            <form method="GET" action="{{ url_for('applications') }}" class="job-card">
+                <div class="job-info">
+                    <img src="{{ url_for('static', filename='images/download.jpg') }}" alt="Work">
+                    <h2>{{ type }}</h2>
+                    <p>{{ work_des }}</p>
+                </div>
+                <div class="apply-section">
+                    <!-- Pass the work_id as a hidden field -->
+                    <input type="hidden" name="wk_id" value="{{ id }}">
+                    <button class="apply-button" type="submit">Apply Now</button>
+                </div>
+            </form>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

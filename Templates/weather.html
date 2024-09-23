@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/weather.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>Weather Forecast</h1>
+        <form method="POST" >
+            <input type="text" name="city" placeholder="Search for a city..." class="search-bar">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <main class="main-content">
+        <section class="current-weather">
+            {% if weather %}
+            <div class="current-weather-card">
+                <div class="weather-icon">
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="{{ weather.description }}">
+                </div>
+                <div class="weather-info">
+                    <h2>{{ weather.city }}</h2>
+                    <p class="temperature">{{ weather.temperature }}°C</p>
+                    <p>{{ weather.description }}</p>
+                    <p>Humidity: {{ weather.humidity }}%</p>
+                    <p>Wind: {{ weather.wind_speed }} km/h</p>
+                </div>
+            </div>
+            {% else %}
+            <p>Weather data not available.</p>
+            {% endif %}
+        </section>
+
+        <section class="forecast">
+            <h2>5-Day Forecast</h2>
+            <div class="forecast-cards">
+                {% if forecast %}
+                {% for day in forecast %}
+                <div class="forecast-card">
+                    <p>{{ day.day }}</p>
+                    <img src="http://openweathermap.org/img/wn/{{ day.icon }}@2x.png" alt="{{ day.description }}">
+                    <p>{{ day.temperature }}°C</p>
+                </div>
+                {% endfor %}
+                {% else %}
+                <p>Forecast data not available.</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

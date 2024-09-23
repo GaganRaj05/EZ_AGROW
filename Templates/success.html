@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/success.css')}}">
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-box">
+            <div class="icon">
+                <img src="{{url_for('static', filename='images/confirm.png')}}" alt="Success Icon">
+            </div>
+            <h1>Your Application has been submitted successfully.!</h1>
+            <p>The Job provider will contact you soon</p>
+            <button class="continue-shopping" onclick ="window.location.href='{{url_for('jobs')}}'">Continue Surfing for Jobs</button>
+        </div>
+    </div>
+</body>
+</html>

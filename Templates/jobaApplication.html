@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/jobApplication.css')}}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="apply_box">
+        <h1>
+          Job Application
+          <span class="title_small">(Web)</span>
+        </h1>
+        <form action="" method="POST">
+          {{form.hidden_tag()}}
+          {{form.csrf_token}}
+          <div class="form_container">
+            <div class="form_control">
+              <label for="first_name"> Full name </label>
+              
+              {{form.full_name(id="first_name", placeholder="Enter Full Name")}}
+            </div>
+            <div class="form_control">
+              <label for="first_name"> Phone Number </label>
+              
+              {{form.phone_no(id="first_name", placeholder="Enter your Phone number")}}
+            </div>
+            <div class="form_control">
+              <label for="first_name"> Money </label>
+              
+              {{form.money(id="first_name", placeholder="Enter your bidding amount")}}
+            </div>
+            <div class="textarea_control">
+              <label for="adress"> Explain why this job suits you the best </label>
+              
+              {{form.proposal_description(id="adress", placeholder="why this job suits you the best", row=4, cols=50)}}
+            </div>
+            <div class="textarea_control">
+              <label for="address"> Address </label>
+              {{form.address(placeholder="Enter your adress",  row=4,cols=50)}}
+            </div>
+            
+            
+           
+          <div class="button_container">
+            {{form.submit(value="Submit Application")}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

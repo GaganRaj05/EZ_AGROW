@@ -1,0 +1,71 @@
+*{
+    
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("../images/back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    text-align: center;
+    margin: 20px;
+}
+
+.search-bar {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}
+
+.main-content {
+    width: 80%;
+    max-width: 1000px;
+}
+
+.current-weather-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(192, 180, 180, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.forecast-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.forecast-card {
+    background-color: rgba(192, 180, 180, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+h1{
+   color: white;
+   font-size: 50px; 
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Product Upload</title>
+</head>
+<body>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/sellcrops.css')}}">
+
+    <!-- Main Title and Description outside of the container -->
+    <h1 class="form-title"><span style="color: rgb(0, 0, 0);" >Farmer Product</span> Upload</h1>
+    <p class="form-description">Fill out the form below to list your <span style="color: green;" > crop & product </span> for sale.</p>
+
+    <!-- Form Container -->
+    <div class="container">
+        <form method = "POST" id="productForm" class="form" enctype="multipart/form-data" >
+            {{form.csrf_token}}
+            {{form.hidden_tag()}}
+            <!-- Section 1: Product Information -->
+            <h2>Product Information</h2>
+            
+            <label for="productName">Product Name</label>
+            {{form.product_name(id=productName, placeholder="Enter Product Name")}}
+
+            <label for="category">Category</label>
+            {{form.category(id="category")}}
+            
+
+            <label for="description">Description</label>
+            {{form.product_description(id="description", placeholder="Enter Product Description")}}
+            
+            <label for="quantity">Available Quantity (in kg)</label>
+            {{form.quantity(id="quantity", placeholder="Enter Available Quantity")}}
+            
+            <!-- Section 2: Pricing Information -->
+            <h2>Pricing Information</h2>
+            
+            <label for="pricePerKg">Price per Kg</label>
+            {{form.price(id="pricePerKg", placeholder="Enter Price")}}
+            
+
+            <!-- Section 3: Upload Image -->
+            <h2>Product Image</h2>
+            {{form.photo(class="img-upload")}}
+            
+
+            <!-- Section 4: Location Information -->
+
+
+            <!-- Section 5: Seller Information -->
+            <h2>Seller Description</h2>
+
+            <label for="sellerName">Seller Name</label>
+            {{form.seller_name(id="sellerName", placeholder="Enter Your Name")}}
+
+            <label for="sellerDescription">About the Seller</label>
+            {{form.seller_des(id="sellerDescription", placeholder="Write a brief description about yourself or your farm")}}
+            {{form.submit(class="submit-btn")}}
+
+        </form>
+    </div>
+
+
+
+<!-- Footer Section -->
+
+
+
+    <script src="{{url_for('static', filename='javascript/sellcrops.js')}}"></script>
+</body>
+</html>

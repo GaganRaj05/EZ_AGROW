@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Support</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/hiring2.css')}}">
+</head>
+<body>
+    <div class="Service">
+        <h1>Tells us your <span class="high"> Farm Type</span> </h1>
+        <div class="pricing">
+            <div class="plan">
+                <img src="{{url_for('static', filename='images/farmy1.jpg')}}" alt="Small" width="300px" height="180px"/>
+                <h2>For Small Farms</h2>
+                <ul>
+                    <li>Access to agronomy experts</li>
+                    <li>Basic digital marketing tips</li>
+                    <li>Simple technology adoption</li>
+                </ul>
+                <a href="{{url_for('more_hiring_info_needed', farm_type="Small")}}">
+                    <button>Submit Request</button>
+                </a>
+            </div>
+            <div class="plan">
+                <img src="{{url_for('static', filename='images/farmy2.jpg')}}" alt="Small" width="300px" height="180px"/>
+                <h2>For Medium Farms</h2>
+                <ul>
+                    <li>Comprehensive farming strategies</li>
+                    <li>Advanced marketing solutions</li>
+                    <li>Technology integration support</li>
+                </ul>
+                <a href="{{url_for('more_hiring_info_needed',farm_type="Medium")}}">
+                    <button>Submit Request</button>
+                </a>
+            </div>
+            <div class="plan">
+                <img src="{{url_for('static', filename='images/farmy3.jpg')}}" alt="Small" width="300px" height="180px"/>
+                <h2>For Large Farms</h2>
+                <ul>
+                    <li>Full farm management services</li>
+                    <li>Dedicated marketing campaigns</li>
+                    <li>Complete digital transformation</li>
+                </ul>
+                <a href="{{url_for('more_hiring_info_needed',farm_type="Large")}}">
+                    <button>Submit Request</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

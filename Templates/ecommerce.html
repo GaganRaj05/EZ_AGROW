@@ -1,0 +1,85 @@
+{%extends "layout.html"%}
+{%block content%}
+<link rel="stylesheet" href="{{url_for('static', filename='styles/ecommerce.css')}}">
+<div class="cart-added">
+    <div style="margin-left:1300px; margin-top:50px;margin-bottom:0px;"><a style="text-decoration:none;color:black;" href="{{url_for('cart')}}"><img style="margin-right:5px;" src="{{url_for('static', filename='images/cart.gif')}}" alt="">Cart</a></div>
+    <div class="container" style="margin-top:20px">
+    
+        <aside class="sidebar">
+            <div class="filter-options">
+                <div class="category-section">
+                    <h4>Category</h4>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Flowers') }}'"/> Flowers
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Fruits') }}'"/> Fruits
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Fertilisers') }}'"/> Fertilisers
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Plants') }}'"/> Plants
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Seeds') }}'"/> Seeds
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Saplings') }}'"/> Saplings
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Insecticides') }}'"/> Insecticides
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Compost') }}'"/> Compost
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Tools') }}'"/> Tools
+                    </label>
+                    <label>
+                        <input type="checkbox" name="category" onclick="window.location.href='{{ url_for('marketplace', category_type='Machinery') }}'"/> Machinery
+                    </label>
+                    
+                </div>
+            </div>
+        </aside>
+        <main class="product-grid"></main>
+            <!-- Example Product Card -->
+            {% if message %}
+        <div class="message">
+            <p>{{ message }}</p>
+        </div>
+    {% else %}
+    {% for prodName, prodPrice, image, prodId in zip(product_name, product_price, images, product_id) %}
+    <div class="product-card">
+        <img src="{{ url_for('static', filename='images/' + image) }}" class="product-image"/>
+        <div class="product-details">
+            <h3>{{ prodName }}</h3>
+            <p>Coach Farm | All Natural</p>
+            <p>₹{{ prodPrice }}.00 / lb</p>
+            <div class="product-actions">
+                <button class="add-btn" onclick="window.location.href='{{ url_for('add_to_cart', price=prodPrice, product_name=prodName, product_id=prodId, image =image) }}'">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+
+    {% endif %}
+        </main>
+    </div>
+</div>
+<script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][name="category"]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('click', function() {
+            checkboxes.forEach(box => {
+                if (box !== this) {
+                    box.checked = false;  // Uncheck other checkboxes
+                }
+            });
+        });
+    });
+</script>
+{%endblock%}
