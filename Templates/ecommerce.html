@@ -5,7 +5,7 @@
     <div style="margin-left:1300px; margin-top:50px;margin-bottom:0px;"><a style="text-decoration:none;color:black;" href="{{url_for('cart')}}"><img style="margin-right:5px;" src="{{url_for('static', filename='images/cart.gif')}}" alt="">Cart</a></div>
     <div class="container" style="margin-top:20px">
     
-        <aside class="sidebar">
+        <div class="sidebar">
             <div class="filter-options">
                 <div class="category-section">
                     <h4>Category</h4>
@@ -42,8 +42,7 @@
                     
                 </div>
             </div>
-        </aside>
-        <main class="product-grid"></main>
+        </div>
             <!-- Example Product Card -->
             {% if message %}
         <div class="message">
@@ -66,7 +65,6 @@
 
 
     {% endif %}
-        </main>
     </div>
 </div>
 <script>

@@ -30,23 +30,23 @@ body, html {
 .sidebar {
     flex: 1;
     background-color: #e9ecef;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     text-align: center;
-    background-image: url(/images/farmer2.avif);
+    background-image: url("../images/farmer3.avif");
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .sidebar-image {
     width: 100%;
-    height: 80vh;
     max-height: 300px;
     object-fit: cover;
     margin-bottom: 15px;
     border-radius: 8px;
+    height: 100vh;
 }
 
 .sidebar h2 {

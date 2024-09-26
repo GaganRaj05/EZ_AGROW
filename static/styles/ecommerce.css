@@ -5,7 +5,6 @@
     max-width: 1200px; /* Limit max width */
     margin: 0 auto;
     padding: 20px;
-    justify-content: space-between; /* Ensure sidebar and product grid are spaced evenly */
 }
 
 .sidebar {
@@ -108,4 +107,22 @@
     width: 50vw;
     height: 50vh;
     display: flex;
+}
+.product-grid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensures 3 products in a row */
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto; /* Center the grid */
+}
+
+.product-card {
+    width: 100%; /* Make the card width flexible within the grid */
+    height: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }

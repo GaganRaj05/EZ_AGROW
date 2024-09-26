@@ -124,3 +124,9 @@ class JobApplicationForm(FlaskForm):
     # Submit button
     submit = SubmitField('Submit Application')
 
+class Contact(FlaskForm):
+    name = StringField(validators = [DataRequired(), Length(min = 4)])
+    email = StringField(validators=[DataRequired()])
+    message = TextAreaField(validators=[DataRequired()])
+    submit = SubmitField("Send Message")
+    

@@ -286,3 +286,8 @@ body, html {
   align-items: center;
   justify-content: ;
 }
+
+.flash {
+  background-color: #037905;
+  text-align: center;
+}

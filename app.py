@@ -1,6 +1,6 @@
 import mimetypes,io,base64, requests, os
 from flask import Flask, url_for, render_template, session, redirect, request, flash
-from forms import FINAL_WORK_UPLOAD,FARMER_REQUIREMENTS,Labour_login, Farmer_login,JobApplicationForm, Farmer_Registeration, Labour_Registration, Forgot_Password, OTP, SELL_PRODUCTS, PROFILE_UPDATE, CHANGE_PASSWORD 
+from forms import Contact,FINAL_WORK_UPLOAD,FARMER_REQUIREMENTS,Labour_login, Farmer_login,JobApplicationForm, Farmer_Registeration, Labour_Registration, Forgot_Password, OTP, SELL_PRODUCTS, PROFILE_UPDATE, CHANGE_PASSWORD 
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
 
@@ -141,7 +141,6 @@ def marketplace():
     login_needed=False
     if not session.get('user_name'):
         login_needed=True
-
     if category_type:
         query = """
         SELECT product_name, product_price, image, product_id 
@@ -507,7 +506,7 @@ def software():
 
 @app.route("/weather", methods=['GET','POST'])
 def weather():
-    city_name = "New York"  # Default city
+    city_name = "New York"  
     weather_data = None
     forecast_data = None
 
@@ -516,7 +515,6 @@ def weather():
         if not city_name:
             city_name = "New York"
 
-    # Fetch current weather data from OpenWeatherMap API
     weather_url = f'http://api.openweathermap.org/data/2.5/weather?q={city_name}&units=metric&appid={API_KEY}'
     weather_response = requests.get(weather_url).json()
 
@@ -564,7 +562,7 @@ def sell():
             file = form.photo.data
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            
+            print(form.category.data)
             cursor.execute("insert into product_details values(%s, %s, %s, %s,%s, %s)", (max_id, form.product_name.data, form.price.data, form.category.data,filename, session.get('user_name') ))
             mysql.connection.commit()
             flash(f"product uploaded successfully","success")
@@ -593,9 +591,15 @@ def add_to_cart():
         flash(f"Items add to cart successfully", "success")
         return redirect(url_for('marketplace'))
     
-@app.route("/about-us")
+@app.route("/about-us", methods = ["GET", "POST"])
 def about_us():
-    return render_template("Aboutus.html")    
+    form = Contact()
+    if form.validate_on_submit():
+        cursor = mysql.connection.cursor()
+        cursor.execute("insert into CONTACT values(%s, %s, %s)", (form.name.data, form.email.data, form.message.data))
+        mysql.connection.commit()
+        flash(f"The team will contact you soon..", "success")
+    return render_template("Aboutus.html", form = form)    
 @app.route('/delete')
 def delete():
     p_id = request.args.get('product_id')

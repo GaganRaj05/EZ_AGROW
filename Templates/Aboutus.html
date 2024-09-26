@@ -8,9 +8,21 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
+
     <link rel="stylesheet" href="{{url_for('static', filename='styles/aboutus.css')}}" />
   </head>
   <body>
+    <div class="flash">
+      {%with messages = get_flashed_messages(with_categories = true)%}
+        {% if messages %}    
+            {%for category, message in messages%}
+                <div class = "alert alert-{{category}}" id="error-message">
+                    {{message}}
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    </div>
     <section class="hero">
       <div class="container">
         <h1 class="hero-title">Hi, Welcome to our profile</h1>
@@ -161,14 +173,13 @@
     <section id="contact" class="contact">
       <div class="container">
         <h2>Contact Us</h2>
-        <form action="#" method="post">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            required
-          ></textarea>
+        <form action="#" method="POST">
+          {{form.csrf_token}}
+          {{form.hidden_tag()}}
+          {{form.name(placeholder="Your Name")}}
+          {{form.email(placeholder="Your email")}}
+          {{form.message(placeholder="Your message")}}
+          {{form.button}}
           <button type="submit">Send Message</button>
         </form>
       </div>
@@ -195,5 +206,6 @@
         </div>
       </div>
     </section>
+    
   </body>
 </html>
