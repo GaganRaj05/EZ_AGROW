@@ -122,6 +122,47 @@
 			"link": "https://mofpi.nic.in/"
 		  },
 		  {
+			"name": "Agricultural Credit PSBS Loan",
+			"description": "Agricultural credit in India provides financial assistance to farmers and agricultural businesses for activities such as crop production, equipment purchase, and development.",
+			"eligibility": "Farmers, agricultural businesses, and cooperative societies.",
+			"subsidy": "Varies depending on the loan and activity.",
+			"link": "https://example-link-agri-credit.com"
+		  },
+		  {
+			"name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+			"description": "A crop insurance scheme launched in 2016 aimed at providing financial protection against crop losses due to natural calamities, pests, and diseases.",
+			"eligibility": "Farmers engaged in crop production, including both individual and group applicants.",
+			"subsidy": "Government-subsidized insurance premium for farmers.",
+			"link": "https://example-link-pmfby.com"
+		  },
+		  {
+			"name": "Kisan Credit Card (KCC) Loan",
+			"description": "The Kisan Credit Card scheme provides farmers with a flexible line of credit that can be used to meet their crop production needs. It is one of the most popular and widely used crop loan schemes in India, including Karnataka.",
+			"eligibility": "Farmers involved in crop production and allied activities.",
+			"subsidy": "Interest subvention and financial incentives on timely repayment.",
+			"link": "https://example-link-kcc.com"
+		  },
+		  {
+			"name": "NABARD Schemes",
+			"description": "NABARD offers various schemes and programs aimed at enhancing agricultural productivity, supporting rural development, and improving the livelihoods of rural communities.",
+			"eligibility": "Farmers, rural development organizations, and cooperatives.",
+			"subsidy": "Varies depending on the specific scheme or program under NABARD.",
+			"link": "https://example-link-nabard.com"
+		  },
+		  {
+			"name": "Scheme for Loan Against Sovereign Gold Bonds",
+			"description": "Sovereign Gold Bonds provide bondholders a way to obtain loans by pledging their bonds as collateral. This scheme allows bondholders to leverage their gold investments without liquidating them.",
+			"eligibility": "Individuals holding Sovereign Gold Bonds.",
+			"subsidy": "Depends on the specific terms of the loan against the pledged bonds.",
+			"link": "https://example-link-loan-against-gold-bonds.com"
+		  },{
+			"name": "Kisan Credit Card (KCC) Loan - State Bank of India",
+			"description": "The Kisan Credit Card scheme provides farmers with a flexible line of credit that can be used to meet their crop production needs. It is one of the most popular and widely used crop loan schemes in India, including Karnataka, offered by the State Bank of India.",
+			"eligibility": "Farmers involved in crop production and allied activities.",
+			"subsidy": "Interest subvention and financial incentives on timely repayment.",
+			"link": "https://example-link-kcc-sbi.com"
+		  },					
+		  {
 			"name": "Extension of Financial Assistance to Coir Units in the Brown Fibre Sector",
 			"description": "Provides financial assistance to coir processing units to upgrade their technology.",
 			"eligibility": "Coir units in the brown fiber sector.",
