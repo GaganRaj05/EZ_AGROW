@@ -1,6 +1,6 @@
 import mimetypes,io,base64, requests, os, json
 from flask import jsonify,Flask, url_for, render_template, session, redirect, request, flash
-from forms import Contact,FINAL_WORK_UPLOAD,FARMER_REQUIREMENTS,Labour_login, Farmer_login,JobApplicationForm, Farmer_Registeration, Labour_Registration, Forgot_Password, OTP, SELL_PRODUCTS, PROFILE_UPDATE, CHANGE_PASSWORD 
+from forms import Faq,Settings,Contact,FINAL_WORK_UPLOAD,FARMER_REQUIREMENTS,Labour_login, Farmer_login,JobApplicationForm, Farmer_Registeration, Labour_Registration, Forgot_Password, OTP, SELL_PRODUCTS
 from flask_mysqldb import MySQL
 from dotenv import load_dotenv
 
@@ -98,7 +98,8 @@ def register():
             
             cursor.execute("insert into FARMER values ( %s, %s, %s, %s, %s, %s, %s, %s, %s)", (user_id, formF.farmer_name.data,  formF.farmer_date_of_birth.data, formF.farmer_gender.data, formF.farmer_phone_no.data, formF.farmer_email.data, formF.farmer_farm_type.data, formF.farmer_new_password.data, formF.farmer_username.data))
             mysql.connection.commit()
-
+            cursor.execute("insert into USER_IMAGE(username) value(%s)", (formF.farmer_username.data, ))
+            mysql.connection.commit()
             flash(f"Account created successfull, Please Login", "success")
             return redirect(url_for('login', alert="success"))
     elif form_type=="labour" and formL.validate_on_submit():
@@ -120,6 +121,8 @@ def register():
             else:
                 user_id = 1
             cursor.execute("insert into LABOUR values(%s,%s,%s,%s,%s,%s,%s, %s)", (formL.labour_name.data, user_id, formL.labour_date_of_birth.data, formL.labour_gender.data, formL.labour_phone_no.data, formL.labour_email.data, formL.labour_new_password.data, formL.labour_username.data))
+            mysql.connection.commit()
+            cursor.execute("insert into USER_IMAGE(username) value(%s)", (formL.labour_username.data, ))
             mysql.connection.commit()
             flash(f"Account created successfully, Please Login", "success")
             return redirect(url_for('login'))
@@ -447,13 +450,26 @@ def get_predefined_response(user_text):
     return None
 
 
-@app.route("/faq")
+@app.route("/faq", methods=["GET", "POST"])
 def faq():
+    form = Faq()
+    if form.validate_on_submit():
+        cursor = mysql.connection.cursor()
+        cursor.execute("INSERT INTO faq (issue) VALUES (%s)", (form.query.data,))
+        mysql.connection.commit()
+        flash(f"The team will respond soon", "success")
+        return redirect(url_for('home'))
     
-    return render_template("faq.html")
+    return render_template("faq.html", form=form)
+
+@app.route("/chat")
+def chat():
+    return render_template("chat.html")
+
 
 @app.route('/get', methods=['POST'])
 def get_bot_response():
+    
     userText = request.form.get('msg', '').strip()
     if not userText:
         return jsonify({"response": "No input provided. Please enter a scheme name."})
@@ -555,59 +571,9 @@ def dashboard():
         return redirect(url_for('home'))
 
 
-@app.route("/settings", methods=["GET", "POST"])
-def settings():
-    formF = PROFILE_UPDATE()
-    formG = CHANGE_PASSWORD()
 
-    if formF.validate_on_submit():
-        full_name = formF.name.data
-        phone_no = formF.phone_no.data
-        new_username = formF.username.data
-        email = formF.email.data
 
-        cursor = mysql.connection.cursor()
-
-        cursor.execute("SELECT username FROM FARMER WHERE username=%s", (new_username,))
-        existing_farmer = cursor.fetchone()
-
-        cursor.execute("SELECT username FROM LABOUR WHERE username=%s", (new_username,))
-        existing_labour = cursor.fetchone()
-
-        if existing_farmer or existing_labour:
-            flash("Username already exists. Please enter another username.", "warning")
-            return redirect(url_for('settings'))
-
-       
-        current_username = session.get("user_name")
-        if not current_username:
-            flash("User not logged in", "warning")
-            return redirect(url_for('login'))  
-
-        cursor.execute("SELECT username FROM FARMER WHERE username=%s", (current_username,))
-        current_farmer = cursor.fetchone()
-
-        cursor.execute("SELECT username FROM LABOUR WHERE username=%s", (current_username,))
-        current_labour = cursor.fetchone()
-
-        if current_farmer:
-            cursor.execute("UPDATE FARMER SET full_name=%s, phone_number=%s, email=%s, username=%s WHERE username=%s", 
-                           (full_name, phone_no, email, new_username, current_username))
-        elif current_labour:
-            cursor.execute("UPDATE LABOUR SET labour_name=%s, phone_number=%s, email=%s, username=%s WHERE username=%s", 
-                           (full_name, phone_no, email, new_username, current_username))
-        else:
-            flash("Current user not found in the system", "error")
-            return redirect(url_for('settings'))
-
-        mysql.connection.commit()
-
-        session['user_name'] = new_username
-
-        flash("Profile updated successfully!", "success")
-        return redirect(url_for('settings'))
-
-    return render_template("settings.html", formF=formF, formG=formG)
+    
 @app.route("/banks-and-societies")
 def banks_and_societies():
     return render_template("banks&soc.html")

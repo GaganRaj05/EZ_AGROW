@@ -8,21 +8,18 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
-
     <link rel="stylesheet" href="{{url_for('static', filename='styles/aboutus.css')}}" />
   </head>
   <body>
-    <div class="flash">
-      {%with messages = get_flashed_messages(with_categories = true)%}
-        {% if messages %}    
-            {%for category, message in messages%}
-                <div class = "alert alert-{{category}}" id="error-message">
-                    {{message}}
-                </div>
-            {%endfor%}
-        {%endif%}
-    {%endwith%}
-    </div>
+    {%with messages = get_flashed_messages(with_categories = true)%}
+    {% if messages %}    
+        {%for category, message in messages%}
+            <div class = "alert alert-{{category}}" id="error-message">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
     <section class="hero">
       <div class="container">
         <h1 class="hero-title">Hi, Welcome to our profile</h1>
@@ -36,7 +33,7 @@
         <div class="about-cards">
           <div class="about-card">
             <img
-              src="{{url_for('static', filename='/images/sheetty.jpg')}}"
+              src="{{url_for('static', filename='images/sheetty.jpg')}}"
               alt="Member 1"
               class="about-image"
             />
@@ -46,7 +43,7 @@
           </div>
           <div class="about-card">
             <img
-              src="{{url_for('static', filename='/images/gagan.jpg')}}"
+              src="{{url_for('static', filename='images/gagan.jpg')}}"
               alt="Member 2"
               class="about-image"
             />
@@ -56,7 +53,7 @@
           </div>
           <div class="about-card">
             <img
-              src="{{url_for('static', filename='/images/pramukh.jpg')}}"
+              src="{{url_for('static', filename='images/pramukh.jpg')}}"
               alt="Member 3"
               class="about-image"
             />
@@ -66,8 +63,7 @@
           </div>
           <div class="about-card">
             <img
-            
-              src="{{url_for('static', filename='/images/hanish.jpg')}}"
+              src="{{url_for('static', filename='images/hanish.jpg')}}"
               alt="Member 4"
               class="about-image"
             />
@@ -77,7 +73,7 @@
           </div>
           <div class="about-card">
             <img
-              src="{{url_for('static', filename='/images/alwin.png')}}"
+              src="{{url_for('static', filename='images/alwin.png')}}"
               alt="Member 5"
               class="about-image"
             />
@@ -87,7 +83,7 @@
           </div>
           <div class="about-card">
             <img
-              src="{{url_for('static', filename='/images/sumanth.png')}}"
+              src="{{url_for('static', filename='images/sumanth.png')}}"
               alt="Member 6"
               class="about-image"
             />
@@ -98,71 +94,93 @@
         </div>
       </div>
     </section>
-    
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2>Projects form our Team </h2>
+        <div class="project-cards">
+          <div class="project-card">
+            <img
+              src="/images/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg"
+              alt="Project 1"
+            />
+            <h3>Project 1</h3>
+            <p>Description of Project 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta veritatis atque placeat, sequi architecto veniam quidem, sit minima totam id mollitia aliquam natus possimus temporibus officiis cumque voluptate dolorum magnam.</p>
+          </div>
+          <div class="project-card">
+            <img
+              src="/images/360_F_357547735_aTZvm1ec8Uzgsd1aTukmFiOw4iXX2aKS.jpg"
+              alt="Project 2"
+            />
+            <h3>Project 2</h3>
+            <p>Description of Project 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil molestias provident ipsa exercitationem tempora neque quibusdam eaque ad hic accusantium fugit, ea quod et quam tempore maxime ratione quasi vero?</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="skills" class="skills">
       <div class="container">
         <h2>Skills of our Team </h2>
         <ul class="skills-list">
           <li>
-            <img src="{{url_for('static', filename='/images/html.png')}}" alt="HTML" class="skill-icon" /><span
+            <img src="{{url_for('static', filename='images/html.png')}}" alt="HTML" class="skill-icon" /><span
               >HTML</span
             >
           </li>
           <li>
-            <img src="{{url_for('static', filename='/images/css.png')}}" alt="CSS" class="skill-icon" /><span
+            <img src="{{url_for('static', filename='images/css.png')}}" alt="CSS" class="skill-icon" /><span
               >CSS</span
             >
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/js.jpg')}}"
+              src="{{url_for('static', filename='images/js.jpg')}}"
               alt="JavaScript"
               class="skill-icon"
             /><span>JavaScript</span>
           </li>
           <li>
-            <img src="{{url_for('static', filename='/images/react.png')}}" alt="React" class="skill-icon" /><span
+            <img src="{{url_for('static', filename='images/react.png')}}" alt="React" class="skill-icon" /><span
               >React</span
             >
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/nodejs.png')}}"
+              src="{{url_for('static', filename='images/nodejs.png')}}"
               alt="Node.js"
               class="skill-icon"
             /><span>Node.js</span>
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/python.png')}}"
+              src="{{url_for('static', filename='images/python.png')}}"
               alt="Python"
               class="skill-icon"
             /><span>Python</span>
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/java.png')}}"
+              src="{{url_for('static', filename='images/java.png')}}"
               alt="Java"
               class="skill-icon"
             /><span>Java</span>
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/flask.png')}}"
+              src="{{url_for('static', filename='images/flask.png')}}"
               alt="Flask"
               class="skill-icon"
             /><span>Flask</span>
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/mysql.webp')}}"
+              src="{{url_for('static', filename='images/mysql.webp')}}"
               alt="MySql"
               class="skill-icon"
             /><span>MySql</span>
           </li>
           <li>
             <img
-              src="{{url_for('static', filename='/images/postgresql.webp')}}"
+              src="{{url_for('static', filename='images/postgresql.webp')}}"
               alt="Postgre Sql"
               class="skill-icon"
             /><span>Postgre Sql</span>
@@ -176,11 +194,11 @@
         <form action="#" method="POST">
           {{form.csrf_token}}
           {{form.hidden_tag()}}
-          {{form.name(placeholder="Your Name")}}
+          {{form.name(placeholder="Your name")}}
           {{form.email(placeholder="Your email")}}
           {{form.message(placeholder="Your message")}}
-          {{form.button}}
-          <button type="submit">Send Message</button>
+            {{form.submit(class="temp")}}
+          
         </form>
       </div>
     </section>
@@ -188,24 +206,21 @@
       <div class="container">
         <h2>Follow Us</h2>
         <div class="social-icons">
-          <a href="https://www.linkedin.com/in/ez-agro-w-428565328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
-            ><img src="{{url_for('static', filename='/images/linkedin2.png')}}" alt="LinkedIn"
-          /></a>
+          
           <a href="https://github.com/EZ-AGROw/EZ-AGROw" target="_blank"
-            ><img src="{{url_for('static', filename='/images/github.png')}}" alt="GitHub"
+            ><img src="{{url_for('static', filename='images/github.png')}}" alt="GitHub"
           /></a>
           <a href="https://x.com/EZ_AGROw?t=iM3lOc29MOp-43OibjEVrw&s=08" target="_blank"
-            ><img src="{{url_for('static', filename='/images/xcorp.png')}}" alt="Xcorp"
+            ><img src="{{url_for('static', filename='images/xcorp.png')}}" alt="Xcorp"
           /></a>
           <a href="https://www.instagram.com/ezagrow?igsh=MWp1cnlpOWY2bHd6aQ==" target="_blank"
-            ><img src="{{url_for('static', filename='/images/insta.jpeg')}}" alt="Instgram"
+            ><img src="{{url_for('static', filename='images/insta.jpeg')}}" alt="Instgram"
           /></a>
           <a href="https://www.facebook.com/profile.php?id=61566015531106&mibextid=ZbWKwL" target="_blank"
-            ><img src="{{url_for('static', filename='/images/facebook.png')}}" alt="Facebook"
+            ><img src="{{url_for('static', filename='images/facebook.png')}}" alt="Facebook"
           /></a>
         </div>
       </div>
     </section>
-    
   </body>
 </html>

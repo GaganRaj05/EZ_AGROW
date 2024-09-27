@@ -74,14 +74,14 @@ h2 {
   margin-bottom: 10px;
   font-size: 18px;
   color: #08922d;
-  margin-left: 330px;
+  margin-left: 300px;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 330px;
+  margin-left: 300px;
 }
 
 .input-group input {
@@ -92,7 +92,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-.btn {
+button {
   width: 300px;
   padding: 12px;
   background-color: #037221;
@@ -101,7 +101,7 @@ h2 {
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 330px;
+  margin-left: 300px;
 }
 
 button:hover {

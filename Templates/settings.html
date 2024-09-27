@@ -5,50 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Info</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/settings.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename ="styles/settings.css")}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+{%with messages = get_flashed_messages(with_categories = true)%}
+    {% if messages %}    
+        {%for category, message in messages%}
+            <div class = "alert alert-{{category}}" id="error-message">
+                {{message}}
+            </div>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
 <body>
+    
+
     <div class="container">
         <h2>Your personal profile info</h2>
-        <form  method="POST" enctype="multipart/form-data">
-            {{formF.csrf_token}}
-            {{formF.hidden_tag()}}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{form.csrf_token}}
+            {{form.hidden_tag()}}
+
+            <div class="profile-picture-section">
+                <div class="profile-picture-container">
+                    {%if image[0]%}
+                    <img id="profile-picture" src="{{url_for('static', filename='images/'+image[0])}}" alt="">
+                    {%else%}
+                    <img id="profile-picture" src="default-avatar.png" alt="">
+                    {%endif%}
+                </div>
+                <label for="profile-input" class="camera-button">
+                    <i class="fas fa-camera"></i> 
+                </label>
+                
+                {{form.photo(id="profile-input", style="display:none;")}}
+            </div>
             <div class="form-section">
                 <h3>Update Profile</h3>
                 <div class="input-group">
-                    {{formF.name(placeholder="Full Name")}}
-                    
-
+                    {{form.name(placeholder=" Name")}}
                 </div>
                 <div class="input-group">
-                    {{formF.phone_no(placeholder="Phone number")}}
+                    {{form.phone_no(placeholder="Phone number")}}
                 </div>
                 <div class="input-group">
-                    {{formF.username(placeholder="Username")}}
-
+                    {{form.username(placeholder="username")}}
                 </div>
+                <div class="input-group">
+                    {{form.email(placeholder="Your e-mail")}}
+                </div>
+                
             </div>
-            {{formF.submit(class="btn")}}
             <br><br>
-            
-        </form>
-        <form method ="POST" action="">
-            {{formG.csrf_token}}
-            {{formG.hidden_tag()}}
             <div class="form-section">
                 <h3>Change Password</h3>
                 <div class="input-group">
-                    {{formG.old_password(placeholder="Old password")}}
+                    {{form.old_password(placeholder="Old password")}}
                 </div>
                 <div class="input-group">
-                    {{formG.new_password(placeholder="New password")}}
-                    {{formG.confirm_password(placeholder="Confirm new password")}}
+                    {{form.new_password(placeholder="New password")}}
+                    {{form.confirm_password(placeholder="Confirm new password")}}
                 </div>
             </div>
-            {{formG.submit(class="btn")}}
-        </form>
-    </div>
+            <button name="submit-password">
+            {{form.submit}}
+            </button>
 
+        </form>
+       
+    </div>
+    <script>
+        // JavaScript to update the profile picture preview
+        document.getElementById('profile-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-picture').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 </body>
 </html>

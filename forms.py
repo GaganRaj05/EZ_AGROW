@@ -76,19 +76,7 @@ class SELL_PRODUCTS(FlaskForm):
     seller_des = TextAreaField(validators=[DataRequired()])
     submit = SubmitField("Submit")
     
-class PROFILE_UPDATE(FlaskForm):
-    name = StringField()
-    phone_no = StringField()
-    username = StringField()
-    email = StringField()
-    submit = SubmitField("Save Info")
-    
-    
-class CHANGE_PASSWORD(FlaskForm):
-    old_password = PasswordField()
-    new_password = PasswordField()
-    confirm_password = PasswordField()
-    submit = SubmitField("Save Info")
+
     
 class JobApplicationForm(FlaskForm):
     # Full name field
@@ -130,3 +118,18 @@ class Contact(FlaskForm):
     message = TextAreaField(validators=[DataRequired()])
     submit = SubmitField("Send Message")
     
+class Settings(FlaskForm):
+    photo = FileField(validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
+    name = StringField()
+    phone_no = StringField()
+    username=StringField()
+    email = StringField()
+    old_password = PasswordField()
+    new_password = PasswordField()
+    confirm_password = PasswordField()
+    submit = SubmitField("Save Changes")
+    
+    
+class Faq(FlaskForm):
+    query = StringField(validators = [DataRequired()])
+    submit =    SubmitField("Submit")
